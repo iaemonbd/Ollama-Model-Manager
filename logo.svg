@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#090D16"/>
+    </linearGradient>
+
+    <!-- Accent Glow Gradient -->
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F2FE"/>
+      <stop offset="100%" stop-color="#4FACFE"/>
+    </linearGradient>
+
+    <!-- Terminal Box Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" rx="16" fill="url(#bgGrad)"/>
+
+  <!-- Subtle Decorative Grid Lines -->
+  <g stroke="#334155" stroke-width="1" opacity="0.15">
+    <path d="M0 50H800 M0 100H800 M0 150H800 M0 200H800 M0 250H800 M0 300H800 M0 350H800" />
+    <path d="M100 0V400 M200 0V400 M300 0V400 M400 0V400 M500 0V400 M600 0V400 M700 0V400" />
+  </g>
+
+  <!-- Glowing Accent Lines -->
+  <path d="M -50 400 L 250 0" stroke="url(#cyanGlow)" stroke-width="2" opacity="0.3" filter="url(#glow)"/>
+  <path d="M 850 0 L 550 400" stroke="url(#cyanGlow)" stroke-width="1.5" opacity="0.2" filter="url(#glow)"/>
+
+  <!-- Central Graphic Group -->
+  <g transform="translate(100, 75)">
+    <!-- Terminal Box Graphic (Left side) -->
+    <g filter="url(#cardShadow)">
+      <!-- Outer Frame -->
+      <rect x="0" y="0" width="220" height="250" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="2"/>
+      
+      <!-- Terminal Window Header Bar -->
+      <path d="M 0 12 A 12 12 0 0 1 12 0 L 208 0 A 12 12 0 0 1 220 12 L 220 36 L 0 36 Z" fill="#0F172A"/>
+      <circle cx="20" cy="18" r="5" fill="#EF4444"/>
+      <circle cx="36" cy="18" r="5" fill="#F59E0B"/>
+      <circle cx="52" cy="18" r="5" fill="#10B981"/>
+      <text x="110" y="22" fill="#94A3B8" font-family="Segoe UI, monospace" font-size="11" text-anchor="middle" font-weight="600">CMD.EXE</text>
+      <line x1="0" y1="36" x2="220" y2="36" stroke="#334155" stroke-width="1"/>
+
+      <!-- Terminal Content / Prompt Graphic -->
+      <text x="20" y="70" fill="#00F2FE" font-family="Consolas, monospace" font-size="16" font-weight="bold">&gt; OLLAMA</text>
+      <text x="20" y="95" fill="#64748B" font-family="Consolas, monospace" font-size="12">=================</text>
+      
+      <!-- Model Item Boxes -->
+      <rect x="20" y="110" width="180" height="28" rx="6" fill="#1E293B" stroke="#00F2FE" stroke-width="1" stroke-opacity="0.6"/>
+      <text x="30" y="128" fill="#F8FAFC" font-family="Consolas, monospace" font-size="11">[1] Local GGUF</text>
+      <circle cx="185" cy="124" r="3" fill="#00F2FE" filter="url(#glow)"/>
+
+      <rect x="20" y="148" width="180" height="28" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+      <text x="30" y="166" fill="#94A3B8" font-family="Consolas, monospace" font-size="11">[2] Hugging Face</text>
+
+      <rect x="20" y="186" width="180" height="28" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+      <text x="30" y="204" fill="#94A3B8" font-family="Consolas, monospace" font-size="11">[3] Modelfile Editor</text>
+
+      <!-- Cursor animation line -->
+      <line x1="20" y1="230" x2="32" y2="230" stroke="#00F2FE" stroke-width="3" filter="url(#glow)"/>
+    </g>
+
+    <!-- Glowing Chip / Neural Icon overlaying top right of box -->
+    <g transform="translate(185, -15)" filter="url(#glow)">
+      <rect x="0" y="0" width="50" height="50" rx="10" fill="#0F172A" stroke="#00F2FE" stroke-width="2"/>
+      <path d="M 15 25 L 23 33 L 35 17" fill="none" stroke="#00F2FE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Typography (Right side) -->
+    <g transform="translate(260, 50)">
+      <!-- Badge -->
+      <rect x="0" y="0" width="105" height="24" rx="12" fill="#00F2FE" fill-opacity="0.1" stroke="#00F2FE" stroke-opacity="0.4" stroke-width="1"/>
+      <text x="52" y="16" fill="#00F2FE" font-family="Segoe UI, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1.5">BATCH TOOL</text>
+
+      <!-- Main Title -->
+      <text x="0" y="70" fill="#FFFFFF" font-family="Segoe UI, sans-serif" font-size="42" font-weight="800" letter-spacing="0.5">OLLAMA</text>
+      <text x="0" y="112" fill="url(#cyanGlow)" font-family="Segoe UI, sans-serif" font-size="34" font-weight="700" letter-spacing="0.5">MODEL MANAGER</text>
+
+      <!-- Version Tag -->
+      <rect x="315" y="85" width="45" height="24" rx="6" fill="#334155"/>
+      <text x="337" y="101" fill="#F8FAFC" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700" text-anchor="middle">v3.0</text>
+
+      <!-- Subtitle -->
+      <text x="0" y="150" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="15" font-weight="400">Streamlined CLI Manager for Local GGUFs &amp; Hugging Face</text>
+      
+      <!-- Tech Tags -->
+      <g transform="translate(0, 175)">
+        <!-- Tag 1 -->
+        <rect x="0" y="0" width="85" height="24" rx="4" fill="#1E293B"/>
+        <text x="42.5" y="16" fill="#CBD5E1" font-family="Consolas, monospace" font-size="11" text-anchor="middle">GGUF Import</text>
+        
+        <!-- Tag 2 -->
+        <rect x="95" y="0" width="105" height="24" rx="4" fill="#1E293B"/>
+        <text x="147.5" y="16" fill="#CBD5E1" font-family="Consolas, monospace" font-size="11" text-anchor="middle">HuggingFace CLI</text>
+
+        <!-- Tag 3 -->
+        <rect x="210" y="0" width="95" height="24" rx="4" fill="#1E293B"/>
+        <text x="257.5" y="16" fill="#CBD5E1" font-family="Consolas, monospace" font-size="11" text-anchor="middle">Modelfile Edit</text>
+      </g>
+    </g>
+  </g>
+</svg>
